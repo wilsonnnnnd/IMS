@@ -3,6 +3,7 @@ package com.ims.controller;
 import com.ims.model.Account.Account;
 import com.ims.model.User.User;
 import com.ims.service.AccountService;
+import com.ims.utils.MD5Utils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,6 +57,8 @@ public class AccountController {
     //  When a form is submitted in POST and action method as 'save' below method to be called returned to home '/' i.e. index
     @RequestMapping(method = RequestMethod.POST, value = "/saveaccount")
     public String saveAccount(@ModelAttribute("account") Account account) {
+        String Md5Pass = MD5Utils.string2MD5(account.getPassword());
+        account.setPassword(Md5Pass);
         accountService.save(account);
         return "redirect:/manageAccount";
     }

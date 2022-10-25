@@ -11,6 +11,7 @@ public class User {
     //@GeneratedValue annotations to indicate that this field is primary key and its value is auto generated
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String firstname;
     private String lastname;
     private String address;

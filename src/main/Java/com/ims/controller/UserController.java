@@ -2,7 +2,6 @@ package com.ims.controller;
 
 import com.ims.model.User.User;
 import com.ims.service.UserService;
-import com.sun.jndi.cosnaming.ExceptionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,7 @@ import java.util.Map;
 
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
